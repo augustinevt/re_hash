@@ -16,5 +16,23 @@ class MyHash
       end
     end
   end
-  
+
+  define_method(:has_key?) do |key|
+    @hash_array.each_with_index do |value, index|
+      if (value == key && index%2 == 0)
+        return true
+      end
+    end
+    false
+  end
+
+  define_method(:has_value?) do |input_value|
+    @hash_array.each_with_index do |value, index|
+      if(value == input_value && index%2 != 0)
+        return true
+      end
+    end
+    false
+  end
+
 end
